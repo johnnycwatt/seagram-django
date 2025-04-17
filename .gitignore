@@ -1,0 +1,33 @@
+# Python and Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.sqlite3  # SQLite database (used in development)
+env/
+venv/  # Virtual environment
+*.env  # Environment variables (e.g., for sensitive keys)
+
+# Media and static files
+media/*  # User-uploaded files (e.g., property/member photos)
+!media/.gitkeep  # Optional: Keep empty media folder in Git
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Logs and caches
+*.log
+*.cache
+
+# Deployment-specific
+*.pid
+*.seed
+*.pid.lock
