@@ -1,4 +1,7 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 from .views import (
     HomeView,
     PropertyListView,
@@ -25,3 +28,6 @@ urlpatterns = [
     path('contact/success/', ContactSuccessView.as_view(), name='contact_success'),
     path('sell/success/', SellSuccessView.as_view(), name='sell_success'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

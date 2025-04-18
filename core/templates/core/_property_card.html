@@ -1,0 +1,19 @@
+{% load static %}
+<div class="card h-100 shadow-sm">
+    <img src="{{ property.image.url }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="{{ property.address }}">
+    <div class="card-body">
+        <div class="d-flex justify-content-start mb-2">
+            <span class="me-3"><i class="fas fa-bed"></i> {{ property.bedrooms }}</span>
+            <span class="me-3"><i class="fas fa-bath"></i> {{ property.bathrooms }}</span>
+        </div>
+        <h5 class="card-title">{{ property.address }}</h5>
+        <p class="card-text">{{ property.get_suburb_display }}</p>
+        {% if property.status == 'sale' %}
+            <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted">Asking Price: {{ property.price|floatformat:0 }}</span>
+            </div>
+        {% else %}
+            <p class="card-text text-success">Sold for: {{ property.price|floatformat:0 }}</p>
+        {% endif %}
+    </div>
+</div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
-from .models import Property
+from .models import Property, Member
 from .forms import ContactForm, SellForm
 
 
@@ -23,11 +23,18 @@ class PropertyDetailView(DetailView):
 class StoryView(TemplateView):
     template_name = 'core/story.html'
 
-class PeopleView(TemplateView):
+class PeopleView(ListView):
+    model = Member
+    context_object_name = 'members'
     template_name = 'core/people.html'
 
 class SellView(TemplateView):
     template_name = 'core/sell.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['sold_properties'] = Property.objects.filter(status='sold').order_by('-updated_at')[:3]
+        return context
 
 #Forms
 class ContactFormView(CreateView):

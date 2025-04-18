@@ -1,0 +1,22 @@
+/* Add a subtle hover effect to the cards */
+.card:hover {
+    transform: scale(1.02); /* Slightly enlarges the card */
+    transition: transform 0.2s; /* Smooth transition */
+}
+
+/* Style the address title */
+.card-title {
+    font-size: 1.25rem; /* Larger text */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+/* Adjust the price text */
+.text-muted {
+    font-size: 0.9rem; /* Smaller text for subtlety */
+}
+
+/* Ensure icons and text align nicely */
+.fa-bed, .fa-bath {
+    margin-right: 5px; /* Space between icon and number */
+    color: #555; /* Dark gray color for icons */
+}

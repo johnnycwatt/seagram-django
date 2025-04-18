@@ -25,6 +25,8 @@ class Property(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='sale')
     suburb = models.CharField(max_length=20, choices=SUBURB_CHOICES, default='silvermoonVillage')
+    bedrooms = models.IntegerField()
+    bathrooms = models.IntegerField()
     image = models.ImageField(upload_to='properties/') #Our images will be stored in media/properties/
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
