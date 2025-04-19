@@ -1,34 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <h1 class="my-4">Sell Your Property with Seagram Properties</h1>
-    <p>
-        Seagram Properties stands as your trusted partner in the quest to sell your property.
-    </p>
 
 
-    <h2 class="my-4">Recently Sold Properties</h2>
+<!-- Why Choose Seagram Section -->
+<div class="container my-3">
+    <h2 class="text-center mb-4">Why Choose Seagram Properties?</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="fas fa-chart-line fa-3x mb-3"></i>
+            <h3>Unmatched Expertise</h3>
+            <p>Our reputation for navigating the real estate market speaks for itself, from Silvermoon Village to Riverwood.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-user-friends fa-3x mb-3"></i>
+            <h3>Tailored Solutions</h3>
+            <p>We offer personalized service to ensure you receive the most favorable price for your property.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-globe fa-3x mb-3"></i>
+            <h3>Extensive Network</h3>
+            <p>Our network of potential buyers spans all four corners of the land, maximizing your reach.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Recently Sold Properties Section -->
+<div class="container my-3">
+    <h2 class="text-center mb-4">Recently Sold Properties</h2>
     <div class="row">
         {% for property in sold_properties %}
             <div class="col-12 col-md-6 col-lg-4 mb-4">
-                {% include 'core/_property_card.html' with property=property %}
+                <div class="card property-card">
+                    <img src="{{ property.image.url }}" class="card-img-top" alt="{{ property.address }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ property.address }}</h5>
+                        <p class="card-text">{{ property.get_suburb_display }}</p>
+                        <p class="card-text"><strong>Sold for: {{ property.price|floatformat:0 }} USD</strong></p>
+                    </div>
+                </div>
             </div>
         {% empty %}
             <div class="col-12">
-                <p>No recently sold properties to display.</p>
+                <p class="text-center">No recently sold properties to display.</p>
             </div>
         {% endfor %}
     </div>
-    <p>
-        Our reputation for unmatched expertise throughout the land speaks for itself.
-    </p>
-    <p>From Silvermoon Village to Riverwood, when you choose Seagram, you're choosing a seasoned team who will navigate the real estate market on your behalf.</p>
+</div>
 
 
-     <p>   We possess an unparalleled understanding of the market's ebbs and flows, ensuring you receive the most favorable prices for your valuable property.</p>
-    <p>Let Seagram Properties guide you through this journey, offering tailored solutions and a network of potential buyers that spans across all four corners of the land.</p>
-    <p>Your adventure begins with Seagram, where your real estate dreams find their address.</p>
 
-    <a href="#" class="btn btn-primary mb-4">Request an Appraisal</a>
+<!-- Call to Action Section -->
+<div class="container my-5 text-center">
+    <h2>Ready to Begin Your Adventure?</h2>
+    <p>Let Seagram Properties turn your real estate dreams into reality.</p>
+    <a href="{% url 'sell_form' %}" class="btn btn-primary btn-lg">Request an Appraisal</a>
 </div>
 {% endblock %}

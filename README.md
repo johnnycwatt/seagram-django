@@ -15,6 +15,15 @@ A fictional real estate website built with Django to practice web development sk
 - Templates for "Buy" (property listings), "Sell" (recently sold properties with appraisal request), and "Our People" (team members) are implemented, dynamically displaying data from the `Property` and `Member` models.
 - Next steps: Enhance the templates with additional styling, implement contact and appraisal forms, and set up authentication for admin editing.
 
+## Screenshots
+
+Below are some screenshots showcasing the Seagram Properties website.
+
+### Buy Page
+![Buy Page](docs/screenshots/buy-page.png)
+
+### Sell Page
+![Sell Page](docs/screenshots/sell-page.png)
 
 ## Notes
 This is a personal learning project for practicing Django. The company and data (including people and properties) are fictional and do not intend to represent any real company, person or property.
