@@ -1,4 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-    <h1>Welcome to Seagram Real Estate</h1>
+<!-- Hero Section -->
+<div class="hero-section" style="background-image: url('{% static 'images/hero_image.png' %}');">
+    <div class="hero-text">
+        <h1>Where Dreams Find Their Address</h1>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="container text-center my-3">
+    <i class="fas fa-home fa-3x mb-3 text-primary"></i>
+    <h2>Would you like to know how much your home is worth?</h2>
+    <p>Book your free Market Appraisal Now</p>
+    <a href="{% url 'sell_form' %}" class="btn btn-primary btn-lg">Request Appraisal</a>
+</div>
+
+<!-- Featured Properties Section -->
+<div class="container my-3">
+    <h2 class="text-center mb-4">Featured Properties</h2>
+    <div class="row">
+        {% for property in featured_properties %}
+            <div class="col-md-4 mb-4">
+                {% include 'core/_property_card.html' with property=property %}
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <p class="text-center">No featured properties available at the moment.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- About Content Section -->
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2><i class="fas fa-building me-2 text-primary"></i>About Seagram Properties</h2>
+            <p>Welcome to Seagram Properties. Nestled within Silvermoon Village, Mystictown and Riverwood, our 200-year journey in the real estate industry has been filled with diligence.</p>
+            <p>Our dedicated team of experts travel throughout these lands, forging strong connections with the communities that we call home.</p>
+            <p>Whether you're in search of a property, or ready to part with your own, Seagram Properties is your key to unlocking the path towards your real estate Dreams.</p>
+            <p>Choose Seagram Properties, where dreams find their addresses.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/office_building.png' %}" class="img-fluid rounded shadow-sm" alt="Office Building">
+            <p class="mb-1"><strong>Head Office</strong></p>
+            <p class="mb-3">7 Moonshadow Street, Riverwood</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -21,3 +21,22 @@
     color: #555; /* Dark gray color for icons */
 }
 
+.hero-section {
+    position: relative;
+    height: 300px; /* Adjust based on your preference */
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+}
