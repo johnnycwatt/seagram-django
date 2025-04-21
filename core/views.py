@@ -18,6 +18,7 @@ class PropertyListView(ListView):
     model = Property
     template_name = 'core/property_list.html'
     context_object_name = 'properties'
+    paginate_by = 9
     
     def get_queryset(self):
         queryset = Property.objects.filter(status='sale').order_by('-updated_at')

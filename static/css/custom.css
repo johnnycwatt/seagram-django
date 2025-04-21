@@ -4,6 +4,13 @@
     transition: transform 0.2s; /* Smooth transition */
 }
 
+.clickable-card:hover {
+    transform: scale(1.03); /* Slightly enlarge the card */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add a deeper shadow */
+    cursor: pointer; /* Show a pointer cursor to indicate clickability */
+}
+
 /* Style the address title */
 .card-title {
     font-size: 1.25rem; /* Larger text */

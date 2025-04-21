@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 <div class="container my-3">
     <h1 class="text-center mb-4">Contact Us</h1>
@@ -45,7 +46,6 @@
                     </div>
                     {% endif %}
                 </div>
-                <!-- Subject and Contact Method on the same row -->
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="id_subject" class="form-label">Subject</label>
@@ -80,4 +80,26 @@
         </div>
     </div>
 </div>
+
+<!-- JavaScript (for pre-filling the fields if user navigates to contact page from property detail) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const subject = urlParams.get('subject');
+        const message = urlParams.get('message');
+
+        if (subject){
+            const subjectField = document.querySelector('#id_subject');
+            if (subjectField){
+                subjectField.value = subject;
+            }
+        }
+        if (message){
+            const messageField = document.querySelector('#id_message');
+            if (messageField){
+                messageField.value = message;
+            }
+        }
+    });
+</script>
 {% endblock %}
