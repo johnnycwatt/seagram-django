@@ -25,5 +25,8 @@ Below are some screenshots showcasing the Seagram Properties website.
 ### Sell Page
 ![Sell Page](docs/screenshots/sell-page.png)
 
+### Contact Page
+![Contact Page](docs/screenshots/contact-page.png)
+
 ## Notes
 This is a personal learning project for practicing Django. The company and data (including people and properties) are fictional and do not intend to represent any real company, person or property.

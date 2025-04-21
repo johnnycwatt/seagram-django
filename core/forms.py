@@ -9,8 +9,8 @@ class ContactForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Phone Number (Optional)'}),
-            'subject': forms.Select(attrs={'class': 'form-control'}),
-            'contact_method': forms.Select(attrs={'class': 'form-control'}),
+            'subject': forms.Select(attrs={'class': 'form-select'}),
+            'contact_method': forms.Select(attrs={'class': 'form-select'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Your Message'}),
         }
         def clean(self):

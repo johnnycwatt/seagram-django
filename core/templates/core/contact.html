@@ -1,64 +1,83 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div class="container my-5">
+<div class="container my-3">
     <h1 class="text-center mb-4">Contact Us</h1>
-    <form method="post" class="needs-validation" novalidate>
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="id_name" class="form-label">Your Name</label>
-            {{ form.name }}
-            {% if form.name.errors %}
-            <div class="invalid-feedback d-block">
-                {% for error in form.name.errors %}{{ error }}{% endfor %}
+    <div class="row">
+        <!-- Left Column: Office Info -->
+        <div class="col-md-6 contact-column mb-4">
+            <img src="{% static 'images/office_building.png' %}" class="img-fluid mb-3" alt="Office Building" style="max-height: 400px; object-fit: cover;">
+            <p class="mb-1"><strong>Head Office</strong></p>
+            <p class="mb-3">7 Moonshadow Street, Riverwood</p>
+            <div>
+                <a href="mailto:info@example.com" class="btn btn-primary me-2">Email Today</a>
+                <a href="{% url 'people' %}" class="btn btn-secondary">Meet The Team</a>
             </div>
-            {% endif %}
         </div>
-        <div class="mb-3">
-            <label for="id_email" class="form-label">Email</label>
-            {{ form.email }}
-            {% if form.email.errors %}
-            <div class="invalid-feedback d-block">
-                {% for error in form.email.errors %}{{ error }}{% endfor %}
-            </div>
-            {% endif %}
+        <!-- Right Column: Contact Form -->
+        <div class="col-md-6 contact-column">
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_name" class="form-label">Your Name</label>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.name.errors %}{{ error }}{% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.email.errors %}{{ error }}{% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    <label for="id_phone" class="form-label">Phone (Optional)</label>
+                    {{ form.phone }}
+                    {% if form.phone.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.phone.errors %}{{ error }}{% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- Subject and Contact Method on the same row -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="id_subject" class="form-label">Subject</label>
+                        {{ form.subject }}
+                        {% if form.subject.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.subject.errors %}{{ error }}{% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="id_contact_method" class="form-label">How would you like us to contact you?</label>
+                        {{ form.contact_method }}
+                        {% if form.contact_method.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.contact_method.errors %}{{ error }}{% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="id_message" class="form-label">Message</label>
+                    {{ form.message }}
+                    {% if form.message.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.message.errors %}{{ error }}{% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="id_phone" class="form-label">Phone (Optional)</label>
-            {{ form.phone }}
-            {% if form.phone.errors %}
-            <div class="invalid-feedback d-block">
-                {% for error in form.phone.errors %}{{ error }}{% endfor %}
-            </div>
-            {% endif %}
-        </div>
-        <div class="mb-3">
-            <label for="id_subject" class="form-label">Subject</label>
-            {{ form.subject }}
-            {% if form.subject.errors %}
-            <div class="invalid-feedback d-block">
-                {% for error in form.subject.errors %}{{ error }}{% endfor %}
-            </div>
-            {% endif %}
-        </div>
-        <div class="mb-3">
-            <label for="id_contact_method" class="form-label">How would you like us to contact you?</label>
-            {{ form.contact_method }}
-            {% if form.contact_method.errors %}
-            <div class="invalid-feedback d-block">
-                {% for error in form.contact_method.errors %}{{ error }}{% endfor %}
-            </div>
-            {% endif %}
-        </div>
-        <div class="mb-3">
-            <label for="id_message" class="form-label">Message</label>
-            {{ form.message }}
-            {% if form.message.errors %}
-            <div class="invalid-feedback d-block">
-                {% for error in form.message.errors %}{{ error }}{% endfor %}
-            </div>
-            {% endif %}
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
+    </div>
 </div>
 {% endblock %}
