@@ -48,19 +48,42 @@ class Member(models.Model):
     
 
 class ContactInquiry(models.Model):
+
+    SUBJECT_CHOICES = (
+        ('selling', 'I\'m thinking of selling'),
+        ('buying', 'I\'m thinking of buying'),
+        ('career', 'Career Opportunities'),
+        ('support', 'Customer Support'),
+    )
+
+    CONTACT_METHOD_CHOICES = (
+        ('phone', 'Phone'),
+        ('email', 'Email'),
+    )    
+
+
     name = models.CharField(max_length=100)
-    email = models.EmailField()
-    message = models.TextField()
+    email = models.EmailField(max_length=150)
+    phone = models.CharField(max_length=15, blank=True, null=True) 
+    subject = models.CharField(max_length=20, choices=SUBJECT_CHOICES)
+    contact_method = models.CharField(max_length=10, choices=CONTACT_METHOD_CHOICES, default='email', blank=True, null=True) 
+    message = models.TextField(max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Contact from {self.name}"
 
 class SellRequest(models.Model):
+    CONTACT_METHOD_CHOICES = (
+        ('phone', 'Phone'),
+        ('email', 'Email'),
+    )        
     name = models.CharField(max_length=100)
     email = models.EmailField()
+    phone = models.CharField(max_length=15, blank=True, null=True) 
     property_address = models.CharField(max_length=255)
-    message = models.TextField()
+    contact_method = models.CharField(max_length=10, choices=CONTACT_METHOD_CHOICES, default='email', blank=True, null=True) 
+    message = models.TextField(max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

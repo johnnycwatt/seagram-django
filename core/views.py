@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
-from .models import Property, Member
+from .models import Property, Member, ContactInquiry, SellRequest
 from .forms import ContactForm, SellForm
 from django.db.models import Q
 
@@ -86,13 +86,13 @@ class SellView(TemplateView):
 
 #Forms
 class ContactFormView(CreateView):
-    model = ContactForm
+    model = ContactInquiry
     form_class = ContactForm
     template_name = 'core/contact.html'
     success_url = '/contact/success/'
 
 class SellFormView(CreateView):
-    model = SellForm
+    model = SellRequest
     form_class = SellForm
     template_name = 'core/sell_form.html'
     success_url = '/sell/success/'
