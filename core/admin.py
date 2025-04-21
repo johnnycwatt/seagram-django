@@ -25,3 +25,10 @@ class ContactInquiryAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email')
     ordering = ('-created_at',)
     list_per_page = 10
+
+@admin.register(SellRequest)
+class SellRequestAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'property_address', 'created_at')
+    search_fields = ('name', 'email', 'property_address')
+    ordering = ('-created_at',)
+    list_per_page = 10
