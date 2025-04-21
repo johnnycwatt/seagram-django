@@ -1,5 +1,65 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<!-- Hero Section -->
+<div class="hero-section" style="background-image: url('{% static 'images/about_hero_image.png' %}');">
+    <div class="hero-text">
+        <h1>About Seagram Properties</h1>
+        <p>A Legacy of Trust and Excellence Since 1825</p>
+    </div>
+</div>
 
+<!--History Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4"><i class="fas fa-book-open me-2 text-primary"></i>Our History</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p>In 1825, amidst the rolling hills of Silvermoon Village, Peter Seagram founded Seagram Properties with a vision to help families find their forever homes. What began as a humble endeavor in a quaint village office has grown into a cornerstone of real estate in the lands of Silvermoon Village, Riverwood, and Mystic Town.</p>
+            <p>Peter’s passion for community and his unwavering commitment to integrity laid the foundation for a legacy that would span over two centuries. Through wars, economic shifts, and the rise of modern technology, Seagram Properties has remained a steadfast partner to generations of families, helping them navigate the ever-changing landscape of real estate.</p>
+            <p>Today, under the leadership of Darian Seagram, Peter’s great-great-great-grandson, we continue to honor our founder’s vision. Darian brings a modern perspective while preserving the values that have defined us for 200 years. From our historic office at 7 Moonshadow Street in Riverwood, we forge connections across communities, ensuring every client finds not just a house, but a home where dreams can flourish.</p>
+        </div>
+    </div>
+</div>
+
+<!--Mission Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4"><i class="fas fa-compass me-2 text-primary"></i>Our Mission</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p>At Seagram Properties, we believe that every property holds a story, and every client deserves a journey that’s as unique as their dreams. Our mission is to be the key that unlocks your path to the perfect home—whether you’re buying your first cottage in Mystic Town or selling a cherished estate in Riverwood.</p>
+            <p>We’re more than a real estate agency; we’re a bridge between past and future, connecting families to the lands we’ve served for centuries. With every transaction, we aim to turn dreams into addresses, creating lasting memories in the heart of Silvermoon Village and beyond.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Values Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Our Values</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="fas fa-handshake fa-3x mb-3 text-primary"></i>
+            <h3>Integrity</h3>
+            <p>For over 200 years, we’ve built trust through honesty and transparency, ensuring every client feels valued and respected.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+            <h3>Community</h3>
+            <p>We’re deeply rooted in Silvermoon Village, Riverwood, and Mystic Town, fostering connections that strengthen our neighborhoods.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-star fa-3x mb-3 text-primary"></i>
+            <h3>Excellence</h3>
+            <p>Our team of experts delivers unparalleled service, guiding you with expertise honed over centuries.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="container my-5 text-center">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Let Seagram Properties help you find your dream home or sell with confidence.</p>
+    <a href="{% url 'contact' %}" class="btn btn-primary me-2">Get in Touch</a>
+    <a href="{% url 'people' %}" class="btn btn-secondary">Meet Our Team</a>
+</div>
 {% endblock %}

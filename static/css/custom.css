@@ -23,7 +23,7 @@
 
 .hero-section {
     position: relative;
-    height: 300px; /* Adjust based on your preference */
+    height: 300px;
     background-size: cover;
     width: 100%;
     background-position: center;
@@ -31,6 +31,8 @@
     align-items: center;
     justify-content: center;
 }
+
+
 
 .hero-text {
     color: white;
